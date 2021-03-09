@@ -1,0 +1,130 @@
+<h3>{{ name }}</h3>
+<form [formGroup]="angForm" (ngSubmit)="onSubmit()" novalidate>
+  <div class="form-group">
+    <!-- prima riga-->
+    <div class="row">
+      <div class="col-sm-4">
+        <label class="required"
+          >Nome
+          <input class="form-control" formControlName="nome" />
+          <div
+            *ngIf="angForm.controls['nome'].invalid && (angForm.controls['nome'].dirty || angForm.controls['nome'].touched)"
+            class="alert alert-danger"
+          >
+            Errore di validazione!
+            <div *ngIf="angForm.controls['nome'].errors.required">
+              Campo Obbligatorio.
+            </div>
+            <div *ngIf="angForm.controls['nome'].errors.pattern">
+              Pattern errato.
+            </div>
+          </div>
+        </label>
+      </div>
+
+      <div class="col-sm-4">
+        <label class="center-block"
+          >Cognome
+          <input class="form-control" formControlName="cognome" />
+          <div
+            *ngIf="angForm.controls['cognome'].invalid && (angForm.controls['cognome'].dirty || angForm.controls['cognome'].touched)"
+            class="alert alert-danger"
+          >
+            Errore di validazione!
+            <div *ngIf="angForm.controls['cognome'].errors.required">
+              Campo Obbligatorio.
+            </div>
+            <div *ngIf="angForm.controls['cognome'].errors.pattern">
+              Pattern errato.
+            </div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- seconda riga-->
+    <div class="row mt-3">
+      <div class="col-sm-4">
+        <label class="center-block"
+          >Data di nascita
+          <input class="form-control" formControlName="data" type="date" />
+          <div
+            *ngIf="angForm.controls['data'].invalid && (angForm.controls['data'].dirty || angForm.controls['data'].touched)"
+            class="alert alert-danger"
+          >
+            Errore di validazione!
+            <div *ngIf="angForm.controls['data'].errors.required">
+              Campo Obbligatorio.
+            </div>
+          </div>
+        </label>
+      </div>
+
+      <div class="col-sm-4">
+        <label class="center-block"
+          >Codice Fiscale
+          <input
+            type="text"
+            class="form-control"
+            formControlName="codicefiscale"
+            size="16"
+          />
+          <div
+            *ngIf="angForm.controls['codicefiscale'].invalid && (angForm.controls['codicefiscale'].dirty || angForm.controls['codicefiscale'].touched)"
+            class="alert alert-danger"
+          >
+            Errore di validazione!
+            <div *ngIf="angForm.controls['codicefiscale'].errors.required">
+              Campo Obbligatorio.
+            </div>
+            <div *ngIf="angForm.controls['codicefiscale'].errors.pattern">
+              Pattern errato.
+            </div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- seconda riga-->
+    <div class="row mt-3">
+      <div class="col-sm-4">
+        <label class="center-block"
+          >Cellulare
+          <input class="form-control" formControlName="cellulare" type="text" />
+          <div
+            *ngIf="angForm.controls['cellulare'].invalid && (angForm.controls['cellulare'].dirty || angForm.controls['cellulare'].touched)"
+            class="alert alert-danger"
+          >
+            Errore di validazione!
+            <div *ngIf="angForm.controls['cellulare'].errors.required">
+              Campo Obbligatorio.
+            </div>
+          </div>
+        </label>
+      </div>
+
+      <div class="col-sm-4">
+        <label class="center-block"
+          >Email
+          <input class="form-control" formControlName="email" type="" />
+          <div
+            *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)"
+            class="alert alert-danger"
+          >
+            Errore di validazione!
+            <div *ngIf="angForm.controls['email'].errors.required">
+              Campo Obbligatorio.
+            </div>
+            <div *ngIf="angForm.controls['email'].errors.pattern">
+              Pattern errato.
+            </div>
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary btn-block">Prenota</button>
+</form>
+
+<p>Form value: {{ angForm.value | json }}</p>
+<p>Form status: {{ angForm.status | json }}</p>
